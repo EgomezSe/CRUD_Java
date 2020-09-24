@@ -43,7 +43,6 @@ public class ControladorInicio {
         String fecha = json.get("fecha").toString();
         String mensaje = json.get("mensaje").toString();
         System.out.println(json.get("mensaje").toString());
-        
         model.addAttribute("mensaje", mensaje);
         model.addAttribute("fecha", fecha);
         return "reporte";
