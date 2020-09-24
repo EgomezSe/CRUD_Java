@@ -22,6 +22,12 @@ jobs:
 
     steps:
       - checkout
+      - run:
+          name: Install Maven
+          command: |
+            sudo apt-get install maven
+            mvn --version
+            java -version
 
       # run tests!
       - run: mvn integration-test
