@@ -23,7 +23,7 @@ public class PersonaTest {
     public void testEqualsFalse() {
         Persona persona = new Persona();
         Persona persona2 = new Persona();
-        //persona2.setApellido("Gomez");
+        persona2.setApellido("Gomez");
         assertFalse(persona.equals(persona2));
     }
     
