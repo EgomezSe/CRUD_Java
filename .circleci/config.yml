@@ -24,13 +24,6 @@ jobs:
     steps:
       - checkout
 
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - sample-springboot-api-{{ checksum "pom.xml" }}
-
-      - run: mvn dependency:go-offline
-
       - save_cache:
           paths:
             - ~/.m2
