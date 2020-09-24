@@ -24,13 +24,6 @@ jobs:
     steps:
       - checkout
 
-      - save_cache:
-          paths:
-            - ~/.m2
-          key: sample-springboot-api-{{ checksum "pom.xml" }}
-      # package into a jar
-      - run: mvn clean package
-
       # run tests!
       #- run: mvn integration-test
       - run:
