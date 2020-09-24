@@ -7,7 +7,7 @@
     </head>
     <body>
         <h1>Inicio</h1>
-        
+        <p th:text="${response}"></p>
         <a th:href="@{/agregar}">Crear Persona</a>
         <div th:if="${personas != null and !personas.empty}">
             <table border="1">
@@ -32,6 +32,10 @@
         <div th:if="${personas == null or personas.empty}">
             La lista de personas está vacía
         </div>
+        <br/><br/>
         
+        <form th:action="@{/reporte}" method="post">
+            <input type="submit" name="reporte" value="Reporte"/>
+        </form>
     </body>
 </html>

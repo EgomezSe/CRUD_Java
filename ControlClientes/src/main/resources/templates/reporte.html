@@ -1,0 +1,14 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Reporte</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+       <h1>Informacion Reporte</h1>
+       <a th:href="@{/}">Regresar</a>
+        <br/>
+        <p th:text="${fecha}"></p>
+        <p th:text="${mensaje}"></p>
+    </body>
+</html>
