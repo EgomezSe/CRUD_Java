@@ -27,16 +27,16 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "build.gradle" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+            - sample-springboot-api-{{ checksum "pom.xml" }}
 
-      - run: gradle dependencies
+      - run: mvn dependency:go-offline
 
       - save_cache:
           paths:
-            - ~/.gradle
-          key: v1-dependencies-{{ checksum "build.gradle" }}
+            - ~/.m2
+          key: sample-springboot-api-{{ checksum "pom.xml" }}
+      # package into a jar
+      - run: mvn clean package
 
       # run tests!
       #- run: mvn integration-test
