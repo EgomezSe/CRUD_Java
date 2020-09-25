@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  github-maven-deploy: github-maven-deploy/github-maven-deploy@1.2.0
+  maven: drift/maven@0.1.7
 
 workflows:
   maven_test:
