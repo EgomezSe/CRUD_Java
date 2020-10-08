@@ -11,6 +11,7 @@ import mx.com.gm.servicio.PersonaServices;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -21,7 +22,7 @@ import org.springframework.web.client.RestTemplate;
 @Controller
 @Slf4j
 public class ControladorInicio {
-    
+
     @Autowired
     private PersonaServices personaService;
     
@@ -69,11 +70,12 @@ public class ControladorInicio {
         return "redirect:/";
     }
     
+    @Cacheable(value = "users", key = "#userId", unless = "#result.followers < 12000")
     @GetMapping("/")
     public String inicio(Model model) throws IOException, ParseException{
         ArrayList<Persona> personas = new ArrayList<Persona>();
         personas = (ArrayList<Persona>) personaService.listaPersona();
-        log.info("ejecutando el controlador Spring MVC");
+        //log.info("ejecutando el controlador Spring MVC");
         model.addAttribute("personas", personas);
         
         return "index";
